@@ -1,0 +1,28 @@
+<div ng-repeat="b in blocks | orderByPriority | orderBy:'time':true | filter:query">
+    <div class="col-md-9">
+        <a href="#/view/{{b.$id}}" class="col-md-9"><h3 ng-bind-template="{{b.title}}"></h3></a>
+        <div class="col-md-8">
+            <a href="#/view/{{b.$id}}">
+                <img class="img-responsive" src="{{b.url}}" />
+            </a>
+        </div>
+        <div class="col-md-4  col-md-offset-0">
+
+            <p>
+                <small>Posted by:</small>
+                <strong ng-bind-template="{{b.user}}" class="text-primary"></strong>
+            </p>
+            <p>
+                <small>At:</small>
+                <span ng-bind-template="{{b.time}}" class="tagContainer text-primary"></span>
+            </p>
+            <p>
+                <small>Tags:</small>
+                <span bind-html-unsafe="b.tag | splitTags" class="tagContainer"></span>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+
