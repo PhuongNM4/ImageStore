@@ -24,8 +24,13 @@ angular.module('codeblockControllers', [])
 
 //EditController
 .controller('ViewCTRL', function ($scope, $location, $routeParams, CodeblocksFactory, rootUrl) {
+    $scope.editMode = false;
     rootUrl = rootUrl + $routeParams.blockId;
     $scope.block = CodeblocksFactory.getData(rootUrl);
+
+    $scope.toggleEdit = function () {
+        $scope.editMode = !$scope.editMode;
+    };
 
     $scope.destroy = function () {
         $scope.block.$remove();
