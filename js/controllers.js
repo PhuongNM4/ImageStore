@@ -7,16 +7,16 @@ angular.module('codeblockControllers', [])
 
 //CreateController
 .controller('CreateCTRL', function ($scope, $location, $timeout, CodeblocksFactory, rootUrl) {
-   var size = null;
+   
     $scope.addMode = true;
     $scope.db = CodeblocksFactory.getData(rootUrl);
     $scope.db.$on('loaded', function () {
-        size = $scope.db.$getIndex();
+        $scope.size = $scope.db.$getIndex();
     })
 
     $scope.saveBlock = function () {
       
-            $scope.block.id = size.length + 1;
+            $scope.block.id = $scope.size.length + 1;
             $scope.block.time = GetDateTimeNow();
 
             $scope.db.$add($scope.block, function () {
