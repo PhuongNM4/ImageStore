@@ -15,7 +15,7 @@ angular.module('codeblockControllers', [])
     })
 
     $scope.saveBlock = function () {
-        if (size != null) {
+      
             $scope.block.id = size.length + 1;
             $scope.block.time = GetDateTimeNow();
 
@@ -24,7 +24,7 @@ angular.module('codeblockControllers', [])
                     $location.path('/');
                 });
             });
-        }
+      
     };
 })
 
