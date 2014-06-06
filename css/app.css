@@ -122,4 +122,5 @@ code {
 
 .img_fixed_width {
     min-width: 80%;
+    max-width: 95%;
 }
