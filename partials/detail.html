@@ -89,12 +89,7 @@
             <span class="btn btn-block btn-primary" ng-click="toggleComment()">Comment ZONE</span>
         </div>
 
-        <div ng-repeat="comment in comments | orderByPriority" class="form-inline col-sm-12 form-group">
-            <span class="text-primary" ng-bind-template="{{comment.name}}"></span>
-            <span class="text-justify" ng-bind-template="{{comment.content}}"></span>
-        </div>
-
-        <div class="col-sm-12" ng-show="showComment">
+   <div class="col-sm-12" ng-show="showComment">
             <form name="commentForm" class="form-horizontal">
                 <div class="form-group col-sm-12">
                     <input type="text" class="form-control" ng-model="newCmt.name" placeholder="Your name" focus-me="showComment" spellcheck="false" required>
@@ -107,6 +102,10 @@
                 </div>
             </form>
         </div>
-    </div>
 
+        <div ng-repeat="comment in comments | orderByPriority" class="form-inline col-sm-12 form-group">
+            <span class="text-primary" ng-bind-template="{{comment.name}}"></span>
+            <span class="text-justify" ng-bind-template="{{comment.content}}"></span>
+        </div>
+    </div>
 </div>
