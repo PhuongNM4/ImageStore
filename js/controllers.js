@@ -3,6 +3,10 @@ angular.module('codeblockControllers', [])
 
 .controller('ListCTRL', function ($scope, CodeblocksFactory, rootUrl) {
     $scope.blocks = CodeblocksFactory.getData(rootUrl);
+    
+    $scope.filterByTag = function(tagName){
+      $scope.query = tagName;  
+    };
 })
 
 //CreateController
