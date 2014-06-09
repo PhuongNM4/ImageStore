@@ -5,6 +5,7 @@ angular.module('codeblock', [
     'codeblockControllers',
     'codeblockDirectives',
     'codeblockFilters',
+    'codeblockAnimations',
 ])
 .value('rootUrl', 'https://fdn-freestore.firebaseio.com/ImagesStore/')
 
