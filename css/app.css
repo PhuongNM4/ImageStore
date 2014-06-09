@@ -74,6 +74,9 @@ code {
     border: 1px solid #ccc;
     padding:5px;
 }
+code:hover {
+        cursor: pointer;
+    }
 
 .pull-right {
     margin-bottom: 1em;
