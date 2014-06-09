@@ -9,6 +9,12 @@ angular.module('codeblockControllers', [])
         $location.hash('top');
         $anchorScroll();
     };
+    
+     $scope.resetFilter = function () {
+        $scope.query = '';
+        $location.hash('top');
+        $anchorScroll();
+    }
 })
 
 //CreateController
