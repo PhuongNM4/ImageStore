@@ -60,6 +60,7 @@ angular.module('codeblockControllers', [])
         $scope.addComment = function () {
             $scope.comments.$add($scope.newCmt);
             $scope.newCmt.content = "";
+            $scope.showComment = false;
         }
     });
 
