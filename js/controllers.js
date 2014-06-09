@@ -1,17 +1,15 @@
 
 angular.module('codeblockControllers', [])
 
-.controller('ListCTRL', function ($scope, $location, $anchorScroll, CodeblocksFactory, rootUrl) {
+.controller('ListCTRL', function ($scope, CodeblocksFactory, rootUrl) {
     $scope.blocks = CodeblocksFactory.getData(rootUrl);
 
     $scope.filterByTag = function (tagName) {
         $scope.query = tagName;
-      
-    };
+  };
 
     $scope.resetFilter = function () {
         $scope.query = '';
-      
     }
 })
 
