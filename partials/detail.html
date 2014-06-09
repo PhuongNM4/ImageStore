@@ -39,11 +39,9 @@
         <img class="img-responsive" src="{{block.url}}" />
     </form>
 </div>
-<div ng-show="!addMode" class="col-md-10">
-    <form name="blockForm" class="form-horizontal">
-        <div class="form-group">
-            <h3 class="btn btn-default btn-block" ng-bind-template="{{block.title}}" ng-show="!editMode" ng-click="toggleEdit()"></h3>
-        </div>
+
+<div ng-show="!addMode" class="col-md-12">
+    <form name="blockForm" class="form-horizontal col-md-8">
         <div class="form-group" ng-show="editMode">
             <label class="col-sm-2 control-label">Title:</label>
             <div class="col-sm-8">
@@ -55,11 +53,14 @@
                 <label class="col-sm-2 control-label">
                     Posted by:
                 </label>
-                <div class="col-sm-8">
-                    <span ng-bind-template="{{block.user}}" class="btn btn-primary"></span>
+                <div class="col-sm-8 col-sm-offset-0">
+                    <span ng-bind-template="{{block.user}}" class="btn btn-primary" ng-click="toggleEdit()"></span>
                 </div>
             </div>
         </div>
+
+        <h3 class="col-md-offset-1 text-primary" ng-bind-template="{{block.title}}" ng-show="!editMode"></h3>
+
         <div class="form-group">
             <div ng-show="editMode">
                 <label class="col-sm-2 control-label">
@@ -73,12 +74,38 @@
 
         <div class="form-group" ng-show="editMode">
             <div class="col-sm-8 col-sm-offset-2">
-                <!--<a href="#/" class="btn">Cancel</a>-->
                 <span ng-click="toggleEdit()" class="btn btn-default">Cancel</span>
                 <span ng-click="saveBlock()" class="btn btn-primary" ng-disabled="blockForm.$invalid">Save</span>
                 <!--<span ng-click="destroy()" class="btn btn-danger">Delete</span>-->
             </div>
         </div>
+
         <img src="{{block.url}}" class="img_fixed_width center-block" />
     </form>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <span class="btn btn-block btn-primary" ng-click="toggleComment()">Comment ZONE</span>
+        </div>
+
+        <div ng-repeat="comment in comments | orderByPriority" class="form-inline col-sm-12 form-group">
+            <span class="text-primary" ng-bind-template="{{comment.name}}"></span>
+            <span class="text-justify" ng-bind-template="{{comment.content}}"></span>
+        </div>
+
+        <div class="col-sm-12" ng-show="showComment">
+            <form name="commentForm" class="form-horizontal">
+                <div class="form-group col-sm-12">
+                    <input type="text" class="form-control" ng-model="newCmt.name" placeholder="Your name" focus-me="showComment" spellcheck="false" required>
+                </div>
+                <div class="form-group  col-sm-12">
+                    <input type="text" class="form-control" ng-model="newCmt.content" placeholder="What you think ..." spellcheck="false" required>
+                </div>
+                <div class="form-group col-sm-12">
+                    <span class="btn btn-primary" ng-disabled="commentForm.$invalid" ng-click="addComment()">Submit</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
 </div>
