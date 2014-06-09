@@ -76,6 +76,7 @@ code {
 }
 code:hover {
         cursor: pointer;
+        box-shadow: 0 0 5px #ccc;;
     }
 
 .pull-right {
