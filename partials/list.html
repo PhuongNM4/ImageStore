@@ -1,4 +1,6 @@
-<div ng-repeat="b in blocks | orderByPriority | orderBy:'id':true | filter:query">
+
+
+<div ng-repeat="b in blocks | orderByPriority | filter:query | orderBy:'id':true " class="image-listing">
     <div class="col-md-12">
         <a href="#/view/{{b.$id}}" class="col-md-9"><h3 ng-bind-template="{{b.title}}"></h3></a>
         <div class="col-md-6">
