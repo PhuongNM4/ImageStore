@@ -6,14 +6,12 @@ angular.module('codeblockControllers', [])
 
     $scope.filterByTag = function (tagName) {
         $scope.query = tagName;
-        $location.hash('top');
-        $anchorScroll();
+      
     };
 
     $scope.resetFilter = function () {
         $scope.query = '';
-        $location.hash('top');
-        $anchorScroll();
+      
     }
 })
 
