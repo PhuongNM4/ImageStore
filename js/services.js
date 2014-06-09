@@ -10,4 +10,13 @@ angular.module('codeblockServices', ['firebase'])
         }
     }
 ])
+.factory('CommentFactory', ['$firebase',
+    function ($firebase) {
+        return {
+            getComments: function (imageUrl) {
+                return $firebase(new Firebase(imageUrl + '/comments'));
+            }
+        }
+    }
+])
 
