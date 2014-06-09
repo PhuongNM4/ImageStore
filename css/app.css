@@ -1,4 +1,4 @@
-﻿body {
+body {
     font-family: Calibri, Verdana, Tahoma, sans-serif;
     padding-bottom: 80px;
     padding-top: 60px;
@@ -6,7 +6,7 @@
 
 .navbar {
     background: black;
-    opacity: 0.9;
+    opacity: 0.95;
     padding-left: 3em;
     border: transparent;
     box-shadow: 0 0 10px black;
@@ -72,11 +72,12 @@ textarea, .textbox, pre {
 code {
     margin-right: .5em;
     border: 1px solid #ccc;
-    padding:5px;
+    padding: 5px;
 }
-code:hover {
+
+    code:hover {
         cursor: pointer;
-        box-shadow: 0 0 5px #ccc;;
+        box-shadow: 0 0 10px grey;
     }
 
 .pull-right {
