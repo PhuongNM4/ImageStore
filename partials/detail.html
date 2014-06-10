@@ -4,25 +4,25 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Title</label>
             <div class="col-sm-8">
-                <input type="text" ng-model="block.title" placeholder="Title" class="form-control" required focus-me="addMode" />
+                <input type="text" ng-model="block.title" placeholder="Title" class="form-control" required focus-me="addMode"  spellcheck="false"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Image Url</label>
             <div class="col-sm-8">
-                <input type="text" ng-model="block.url" placeholder="Image Url" class="form-control" required />
+                <input type="text" ng-model="block.url" placeholder="Image Url" class="form-control" required  spellcheck="false"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Tags</label>
             <div class="col-sm-8">
-                <input type="text" ng-model="block.tag" placeholder="Tags" class="form-control" />
+                <input type="text" ng-model="block.tag" placeholder="Tags" class="form-control"  spellcheck="false"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Uploader Name</label>
             <div class="col-sm-8">
-                <input type="text" ng-model="block.user" placeholder="Tell us your name" class="form-control" />
+                <input type="text" ng-model="block.user" placeholder="Tell us your name" class="form-control"  spellcheck="false"/>
             </div>
         </div>
         <div class="form-group">
@@ -98,7 +98,7 @@
                     <input type="text" class="form-control" ng-model="newCmt.content" placeholder="What you think ..." spellcheck="false" required>
                 </div>
                 <div class="form-group col-sm-12">
-                    <span class="btn btn-primary" ng-disabled="commentForm.$invalid" ng-click="addComment()">Submit</span>
+                    <span class="btn btn-primary" ng-disabled="commentForm.$invalid" ng-click="addComment()">Lên</span>
                 </div>
             </form>
         </div>
