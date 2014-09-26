@@ -1,13 +1,13 @@
 <div infinite-scroll="loadMore()">
     <div class="div-loading" ng-show="loading">
-        <img src="../imgs/loader_1.gif" />
+        <img src="https://raw.githubusercontent.com/PhuongNM4/ImageStore/gh-pages/imgs/loader_1.gif" />
     </div>
     <div ng-repeat="b in blocks | filter: query | orderBy: '-$id'">
         <div class="div-record">
             <div class="div-left">
                 <a href="#/view/{{b.$id}}" class="a-title"><span ng-bind-template="{{b.title}}"></span></a>
                 <a href="#/view/{{b.$id}}">
-                    <img class="img-preview" fallback-src="../imgs/photo_not_available.png" ng-src="{{b.url}}" />
+                    <img class="img-preview" fallback-src="https://raw.githubusercontent.com/PhuongNM4/ImageStore/gh-pages/imgs/photo_not_available.png" ng-src="{{b.url}}" />
                 </a>
                 <div class="sign"><small>grab some </small><span class="text-info"> FUN</span></div>
             </div>
