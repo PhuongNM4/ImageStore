@@ -4,14 +4,16 @@
     </div>
     <div ng-repeat="b in blocks | filter: query | orderBy: '-$id'">
         <div class="div-record">
-            <div class="div-left">
+            <!--<div class="div-left">-->
+            <div class="col-md-6">
                 <a href="#/view/{{b.$id}}" class="a-title"><span ng-bind-template="{{b.title}}"></span></a>
                 <a href="#/view/{{b.$id}}">
-                    <img class="img-preview" fallback-src="https://raw.githubusercontent.com/PhuongNM4/ImageStore/gh-pages/imgs/photo_not_available.png" ng-src="{{b.url}}" />
+                    <img class="img-fixed-width center-block" fallback-src="https://raw.githubusercontent.com/PhuongNM4/ImageStore/gh-pages/imgs/photo_not_available.png" ng-src="{{b.url}}" />
                 </a>
                 <div class="sign"><small>grab some </small><span class="text-info"> FUN</span></div>
             </div>
-            <div class="div-right">
+            <!--<div class="div-right">-->
+            <div class="col-md-4 col-md-offset-1">
                 <div class="div-info">
                     <p>
                         Posted by <strong ng-bind-template="{{b.user}}" class="str-name"></strong> at <strong ng-bind-template="{{b.time}}" class="str-name"></strong>

@@ -150,12 +150,12 @@ code {
     z-index: 99;
     position: relative;
     height: 34px;
-    min-width: 400px;
+    min-width: 500px;
     text-align: center;
     background: white;
     padding-top: 5px;
     font-weight: bolder;
-    box-shadow: 0px 0px 10px -1px black;
+    box-shadow: 0 3px 5px #333;
 }
 
 body, * {
@@ -171,14 +171,14 @@ body, * {
 .div-left {
     display: inline-block;
     position: inherit;
-    width: 50%;
+    min-width: 500px;
     float: left;
 }
 
 .div-right {
     display: inline-block;
     position: inherit;
-    width: 50%;
+    min-width: 300px;
     float: right;
 }
 
