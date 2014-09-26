@@ -164,7 +164,8 @@ body, * {
 
 .img-preview {
     display: block;
-    width: 400px;
+    width: 450px;
+    margin-left: 40px;
 }
 
 .div-left {
