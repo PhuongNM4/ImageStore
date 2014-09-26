@@ -1,7 +1,12 @@
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+
 body {
     font-family: Calibri, Verdana, Tahoma, sans-serif;
     padding-bottom: 80px;
-    padding-top: 60px;
+    padding-top: 80px;
 }
 
 .navbar {
@@ -12,7 +17,7 @@ body {
     box-shadow: 0 0 10px black;
 }
 
-#top-header {
+.top-header {
     font-size: 150%;
     color: #ccc !important;
 }
@@ -78,6 +83,7 @@ code {
     code:hover {
         cursor: pointer;
         box-shadow: 0 0 10px grey;
+        font-family: cursive;
     }
 
 .pull-right {
@@ -125,7 +131,100 @@ code {
     margin-bottom: 1em;
 }
 
-.img_fixed_width {
-    min-width: 80%;
+.img-fixed-width {
+    min-width: 90%;
     max-width: 95%;
+    box-shadow: 0 0 10px black;
 }
+
+.h3-title {
+    color: #428bca;
+    font-size: large;
+    font-weight: bold;
+}
+/*Newly added*/
+
+.sign {
+    display: block;
+    margin-top: -35px;
+    z-index: 99;
+    position: relative;
+    height: 34px;
+    max-width: 100%;
+    text-align: center;
+    background: white;
+    padding-top: 5px;
+    font-weight: bolder;
+    box-shadow: 0px 0px 10px -1px black;
+}
+
+body, * {
+    font-family: cursive;
+}
+
+.img-preview {
+    display: block;
+    width: 400px;
+}
+
+.div-left {
+    display: inline-block;
+    position: inherit;
+    width: 50%;
+    float: left;
+}
+
+.div-right {
+    display: inline-block;
+    position: inherit;
+    width: 50%;
+    float: right;
+}
+
+.div-record {
+    display: block;
+    width: 100%;
+}
+
+.div-divider {
+    display: block;
+    clear: both;
+    height: 50px;
+}
+
+.div-info {
+    padding-top: 20px;
+}
+
+.a-title {
+    text-decoration: none;
+    display: inline-block;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+    .a-title:hover {
+        text-decoration: none;
+    }
+
+.str-name {
+    color: #428bca;
+}
+
+.div-loading img {
+    display: block;
+    margin: 0 auto;
+}
+
+#div-login-shortcut {
+    display: inline-block;
+    float: right;
+    margin: 15px 30px;
+}
+
+.img-preview {
+    box-shadow: 0 0 10px black;
+}
+
+/*End add*/

@@ -1,28 +1,27 @@
-
 <div ng-show="addMode" class="col-md-10">
     <form name="blockForm" class="form-horizontal">
         <div class="form-group">
             <label class="col-sm-2 control-label">Title</label>
             <div class="col-sm-8">
-                <input type="text" ng-model="block.title" placeholder="Title" class="form-control" required focus-me="addMode"  spellcheck="false"/>
+                <input type="text" ng-model="block.title" placeholder="Title" class="form-control" required focus-me="addMode" spellcheck="false" />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Image Url</label>
             <div class="col-sm-8">
-                <input type="text" ng-model="block.url" placeholder="Image Url" class="form-control" required  spellcheck="false"/>
+                <input type="text" ng-model="block.url" placeholder="Image Url" class="form-control" required spellcheck="false" />
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Tags</label>
             <div class="col-sm-8">
-                <input type="text" ng-model="block.tag" placeholder="Tags" class="form-control"  spellcheck="false"/>
+                <input type="text" ng-model="block.tag" placeholder="Tags" class="form-control" spellcheck="false" />
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Uploader Name</label>
+            <label class="col-sm-2 control-label">Link-Sharer</label>
             <div class="col-sm-8">
-                <input type="text" ng-model="block.user" placeholder="Tell us your name" class="form-control"  spellcheck="false"/>
+                <input type="text" ng-model="block.user" placeholder="Tell us your name" class="form-control" spellcheck="false" />
             </div>
         </div>
         <div class="form-group">
@@ -39,7 +38,6 @@
         <img class="img-responsive" src="{{block.url}}" />
     </form>
 </div>
-
 <div ng-show="!addMode" class="col-md-12">
     <form name="blockForm" class="form-horizontal col-md-8">
         <div class="form-group" ng-show="editMode">
@@ -51,16 +49,14 @@
         <div class="form-group">
             <div ng-show="!editMode">
                 <label class="col-sm-2 control-label">
-                    Posted by:
+                    Poster:
                 </label>
                 <div class="col-sm-8 col-sm-offset-0">
                     <span ng-bind-template="{{block.user}}" class="btn btn-primary" ng-click="toggleEdit()"></span>
                 </div>
             </div>
         </div>
-
         <h3 class="col-md-offset-1 text-primary" ng-bind-template="{{block.title}}" ng-show="!editMode"></h3>
-
         <div class="form-group">
             <div ng-show="editMode">
                 <label class="col-sm-2 control-label">
@@ -71,25 +67,21 @@
                 </div>
             </div>
         </div>
-
         <div class="form-group" ng-show="editMode">
             <div class="col-sm-8 col-sm-offset-2">
                 <span ng-click="toggleEdit()" class="btn btn-default">Cancel</span>
                 <span ng-click="saveBlock()" class="btn btn-primary" ng-disabled="blockForm.$invalid">Save</span>
-                <!--<span ng-click="destroy()" class="btn btn-danger">Delete</span>-->
+                <!--<span ng-click="destroy()" class="btn btn-danger" ng-show="auth">Delete</span>-->
             </div>
         </div>
-
-        <img src="{{block.url}}" class="img_fixed_width center-block" />
+        <img src="{{block.url}}" class="img_fixed_width center-block img-preview" fallback-src="../imgs/photo_not_available.png" />
         <div class="sign"><small>grab some </small><span class="text-info">  FUN</span></div>
     </form>
-
     <div class="col-md-4">
         <div class="form-group">
-            <span class="btn btn-block btn-primary" ng-click="toggleComment()">Comment ZONE</span>
+            <span class="btn btn-block btn-primary" ng-click="toggleComment()">Click to COMMENT</span>
         </div>
-
-   <div class="col-sm-12" ng-show="showComment">
+        <div class="col-sm-12" ng-show="showComment">
             <form name="commentForm" class="form-horizontal">
                 <div class="form-group col-sm-12">
                     <input type="text" class="form-control" ng-model="newCmt.name" placeholder="Your name" focus-me="showComment" spellcheck="false" required>
@@ -102,8 +94,7 @@
                 </div>
             </form>
         </div>
-
-        <div ng-repeat="comment in comments | orderByPriority" class="form-inline col-sm-12 form-group">
+        <div ng-repeat="comment in comments | orderBy: '-$id'" class="form-inline col-sm-12 form-group">
             <span class="text-primary" ng-bind-template="{{comment.name}}"></span>
             <span class="text-justify" ng-bind-template="{{comment.content}}"></span>
         </div>

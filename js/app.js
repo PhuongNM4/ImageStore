@@ -1,11 +1,12 @@
 
 angular.module('codeblock', [
     'ngRoute',
+    'ngAnimate',
     'codeblockServices',
     'codeblockControllers',
     'codeblockDirectives',
     'codeblockFilters',
-    'codeblockAnimations',
+    'infinite-scroll'
 ])
 .value('rootUrl', 'https://fdn-freestore.firebaseio.com/ImagesStore/')
 

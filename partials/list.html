@@ -1,29 +1,28 @@
-
-
-
-<div ng-repeat="b in blocks | orderByPriority | filter:query | orderBy:'id':true " class="image-listing">
-    <div class="col-md-12">
-        <a href="#/view/{{b.$id}}" class="col-md-9"><h3 ng-bind-template="{{b.title}}"></h3></a>
-        <div class="col-md-6">
-            <a href="#/view/{{b.$id}}">
-                <img class="img-responsive" src="{{b.url}}" />
-            </a>
-            <div class="sign"><small>grab some </small><span class="text-info"> FUN</span></div>
+<div infinite-scroll="loadMore()">
+    <div class="div-loading" ng-show="loading">
+        <img src="../imgs/hex-loader2.gif" />
+    </div>
+    <div ng-repeat="b in blocks | filter: query">
+        <div class="div-record">
+            <div class="div-left">
+                <a href="#/view/{{b.$id}}" class="a-title"><span ng-bind-template="{{b.title}}"></span></a>
+                <a href="#/view/{{b.$id}}">
+                    <img class="img-preview" fallback-src="../imgs/photo_not_available.png" ng-src="{{b.url}}" />
+                </a>
+                <div class="sign"><small>grab some </small><span class="text-info"> FUN</span></div>
+            </div>
+            <div class="div-right">
+                <div class="div-info">
+                    <p>
+                        Posted by <strong ng-bind-template="{{b.user}}" class="str-name"></strong> at <strong ng-bind-template="{{b.time}}" class="str-name"></strong>
+                    </p>
+                    <p>
+                        Tags: <span bind-html-unsafe="b.tag | splitTags"></span>
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4  col-md-offset-0">
-            <p>
-                <small>Posted by:</small>
-                <strong ng-bind-template="{{b.user}}" class="text-primary"></strong>
-            </p>
-            <p>
-                <small>At:</small>
-                <span ng-bind-template="{{b.time}}" class="tagContainer text-primary"></span>
-            </p>
-            <p>
-                <small>Tags:</small>
-                <span bind-html-unsafe="b.tag | splitTags" class="tagContainer"></span>
-            </p>
-        </div>
+        <div class="div-divider"></div>
     </div>
 </div>
 

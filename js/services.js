@@ -1,15 +1,21 @@
-
 angular.module('codeblockServices', ['firebase'])
 
 .factory('CodeblocksFactory', ['$firebase',
     function ($firebase) {
         return {
-            getData: function (fbUrl) {
-                return $firebase(new Firebase(fbUrl));
+            syncArray: function (fbUrl, limit) {
+                return $firebase(new Firebase(fbUrl).limit(limit)).$asArray();
+            },
+            syncAllAsArray: function (fbUrl) {
+                return $firebase(new Firebase(fbUrl)).$asArray();
+            },
+            syncObject: function (fbUrl, limit) {
+                return $firebase(new Firebase(fbUrl)).$asObject();
             }
         }
     }
 ])
+
 .factory('CommentFactory', ['$firebase',
     function ($firebase) {
         return {
@@ -19,4 +25,3 @@ angular.module('codeblockServices', ['firebase'])
         }
     }
 ])
-
