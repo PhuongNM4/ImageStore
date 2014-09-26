@@ -1,8 +1,8 @@
 <div infinite-scroll="loadMore()">
     <div class="div-loading" ng-show="loading">
-        <img src="../imgs/hex-loader2.gif" />
+        <img src="../imgs/loader_1.gif" />
     </div>
-    <div ng-repeat="b in blocks | filter: query">
+    <div ng-repeat="b in blocks | filter: query | orderBy: '-$id'">
         <div class="div-record">
             <div class="div-left">
                 <a href="#/view/{{b.$id}}" class="a-title"><span ng-bind-template="{{b.title}}"></span></a>

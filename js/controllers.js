@@ -1,31 +1,53 @@
 
 angular.module('codeblockControllers', [])
 
-.controller('ListCTRL', function ($scope, CodeblocksFactory, rootUrl) {
-    $scope.blocks = CodeblocksFactory.getData(rootUrl);
+    // ListController
+    .controller('ListCTRL', function ($scope, CodeblocksFactory, rootUrl) {
+        var maxSize = 0;
+        var firstTake = 10;
+        var addOffset = 5;
+        var currentSize = 0;
 
-    $scope.filterByTag = function (tagName) {
-        $scope.query = tagName;
-  };
+        $scope.blocks = [];
+        $scope.loading = true;
 
-    $scope.resetFilter = function () {
-        $scope.query = '';
-    }
-})
+        buffer = CodeblocksFactory.syncAllAsArray(rootUrl);
+        buffer.$loaded().then(function () {
+            $scope.loading = false;
+            maxSize = buffer.length;
+            for (var i = maxSize; i > maxSize - firstTake; i--) {
+                $scope.blocks.push(buffer[i - 1]);
+            }
+        });
+
+        $scope.loadMore = function () {
+            currentSize = $scope.blocks.length;
+            var startIndex = maxSize - currentSize;
+            var endIndex = startIndex - addOffset;
+            for (var i = startIndex; i > endIndex && i > 0; i--) {
+                $scope.blocks.push(buffer[i - 1]);
+            }
+        };
+
+        $scope.filterByTag = function (tagName) {
+            $scope.query = tagName;
+        };
+
+        $scope.resetFilter = function () {
+            $scope.query = '';
+        }
+    })
 
     //CreateController
     .controller('CreateCTRL', function ($scope, $location, $timeout, CodeblocksFactory, rootUrl) {
         $scope.addMode = true;
-        $scope.db = CodeblocksFactory.getData(rootUrl);
+        buffer = CodeblocksFactory.syncAllAsArray(rootUrl);
 
         $scope.saveBlock = function () {
-            $scope.block.id = $scope.db.$getIndex().length + 1;
             $scope.block.time = GetDateTimeNow();
 
-            $scope.db.$add($scope.block, function () {
-                $timeout(function () {
-                    $location.path('/');
-                });
+            buffer.$add($scope.block).then(function () {
+                $location.path('/');
             });
         };
     })
@@ -36,7 +58,7 @@ angular.module('codeblockControllers', [])
 
         $scope.editMode = false;
         $scope.showComment = false;
-        $scope.block = CodeblocksFactory.getData(rootUrl);
+        $scope.block = CodeblocksFactory.syncObject(rootUrl, 1);
         $scope.comments = CommentFactory.getComments(rootUrl);
 
         $scope.toggleEdit = function () {
@@ -53,8 +75,9 @@ angular.module('codeblockControllers', [])
         };
 
         $scope.saveBlock = function () {
-            $scope.block.$save();
-            $location.path('/');
+            $scope.block.$save().then(function () {
+                $location.path('/');
+            })
         };
 
         $scope.addComment = function () {

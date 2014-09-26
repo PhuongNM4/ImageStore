@@ -35,17 +35,12 @@
                 Preview
             </label>
         </div>
-        <img class="img-responsive" src="{{block.url}}" />
+        <img src="{{block.url}}" class="img-fixed-width center-block" fallback-src="../imgs/photo_not_available.png" />
     </form>
 </div>
+
 <div ng-show="!addMode" class="col-md-12">
     <form name="blockForm" class="form-horizontal col-md-8">
-        <div class="form-group" ng-show="editMode">
-            <label class="col-sm-2 control-label">Title:</label>
-            <div class="col-sm-8">
-                <input type="text" ng-model="block.title" placeholder="Title" required focus-me="editMode" class="form-control" spellcheck="false" />
-            </div>
-        </div>
         <div class="form-group">
             <div ng-show="!editMode">
                 <label class="col-sm-2 control-label">
@@ -56,6 +51,13 @@
                 </div>
             </div>
         </div>
+        <div class="form-group" ng-show="editMode">
+            <label class="col-sm-2 control-label">Title:</label>
+            <div class="col-sm-8">
+                <input type="text" ng-model="block.title" placeholder="Title" required focus-me="editMode" class="form-control" spellcheck="false" />
+            </div>
+        </div>
+
         <h3 class="col-md-offset-1 text-primary" ng-bind-template="{{block.title}}" ng-show="!editMode"></h3>
         <div class="form-group">
             <div ng-show="editMode">
@@ -67,6 +69,16 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <div ng-show="editMode">
+                <label class="col-sm-2 control-label">
+                    Url:
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" ng-model="block.url" placeholder="Url" required class="form-control" spellcheck="false" ng-show="editMode" />
+                </div>
+            </div>
+        </div>
         <div class="form-group" ng-show="editMode">
             <div class="col-sm-8 col-sm-offset-2">
                 <span ng-click="toggleEdit()" class="btn btn-default">Cancel</span>
@@ -74,7 +86,7 @@
                 <!--<span ng-click="destroy()" class="btn btn-danger" ng-show="auth">Delete</span>-->
             </div>
         </div>
-        <img src="{{block.url}}" class="img_fixed_width center-block img-preview" fallback-src="../imgs/photo_not_available.png" />
+        <img src="{{block.url}}" class="img-fixed-width center-block" fallback-src="../imgs/photo_not_available.png" />
         <div class="sign"><small>grab some </small><span class="text-info">  FUN</span></div>
     </form>
     <div class="col-md-4">

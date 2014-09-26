@@ -1,33 +1,19 @@
-.image-listing.ng-enter,
-.image-listing.ng-leave,
-.image-listing.ng-move {
-  -webkit-transition: 0.5s linear all;
-  -moz-transition: 0.5s linear all;
-  -o-transition: 0.5s linear all;
-  transition: 0.5s linear all;
+.ng-enter {
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
 }
 
-.image-listing.ng-enter,
-.image-listing.ng-move {
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
+.ng-enter-active {
+    opacity: 1;
 }
 
-.image-listing.ng-move.ng-move-active,
-.image-listing.ng-enter.ng-enter-active {
-  opacity: 1;
-  height: 120px;
+
+.ng-leave {
+    -webkit-transition: 1s;
+    transition: 1s;
 }
 
-.image-listing.ng-leave {
-  opacity: 1;
-  overflow: hidden;
-}
-
-.image-listing.ng-leave.ng-leave-active {
-  opacity: 0;
-  height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+.ng-leave-active {
+    opacity: 0;
 }

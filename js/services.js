@@ -20,7 +20,7 @@ angular.module('codeblockServices', ['firebase'])
     function ($firebase) {
         return {
             getComments: function (imageUrl) {
-                return $firebase(new Firebase(imageUrl + '/comments'));
+                return $firebase(new Firebase(imageUrl + '/comments')).$asArray();
             }
         }
     }
