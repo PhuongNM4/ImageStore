@@ -2,7 +2,7 @@
     <div class="div-loading" ng-show="loading">
         <img src="https://raw.githubusercontent.com/PhuongNM4/ImageStore/gh-pages/imgs/loader_1.gif" />
     </div>
-    <div ng-repeat="b in blocks | filter: query | orderBy: '-$id'">
+    <div ng-repeat="b in blocks | filter: query ">
         <div class="div-record">
             <!--<div class="div-left">-->
             <div class="col-md-6">
