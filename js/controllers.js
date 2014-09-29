@@ -25,8 +25,6 @@ angular.module('codeblockControllers', [])
             var startIndex = maxSize - currentSize;
             var endIndex = startIndex - addOffset;
 
-            debugger
-
             for (var i = startIndex; i > endIndex && i > 0; i--) {
                 $scope.blocks.push(buffer[i - 1]);
             }
