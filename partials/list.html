@@ -6,9 +6,12 @@
         <div class="div-record">
             <div class="col-md-6">
                 <a href="#/view/{{b.$id}}" class="a-title"><span ng-bind-template="{{b.title}}"></span></a>
-                <a href="#/view/{{b.$id}}">
+                <!--<a href="#/view/{{b.$id}}">
                     <img class="img-preview center-block" fallback-src="https://raw.githubusercontent.com/PhuongNM4/ImageStore/gh-pages/imgs/photo_not_available.png" ng-src="{{b.url}}" />
-                </a>
+                </a>-->
+                <p ng-click="modalImage(b)">
+                    <img class="img-preview center-block" fallback-src="https://raw.githubusercontent.com/PhuongNM4/ImageStore/gh-pages/imgs/photo_not_available.png" ng-src="{{b.url}}" />
+                </p>
                 <div class="sign"><small>grab some </small><span class="text-info"> FUN</span></div>
             </div>
             <div class="col-md-4 col-md-offset-1">
@@ -22,6 +25,10 @@
                 </div>
             </div>
         </div>
+        <script type="text/ng-template" id="temp-modal">
+            <img class="modal-img center-block" fallback-src="https://raw.githubusercontent.com/PhuongNM4/ImageStore/gh-pages/imgs/photo_not_available.png" ng-src="{{block.url}}" />
+            <div class="modal-sign"><small>grab some </small><span class="text-info"> FUN</span></div>
+        </script>
         <div class="div-divider"></div>
     </div>
 </div>

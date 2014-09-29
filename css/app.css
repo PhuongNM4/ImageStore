@@ -144,7 +144,7 @@ code {
 }
 /*Newly added*/
 
-.sign {
+.sign, .modal-sign {
     display: block;
     margin-top: -35px;
     z-index: 99;
@@ -158,6 +158,11 @@ code {
     box-shadow: 0 3px 5px #333;
 }
 
+.modal-sign {
+    margin-top: -40px;
+    height: 40px;
+}
+
 body, * {
     font-family: cursive;
 }
@@ -166,6 +171,7 @@ body, * {
     display: block;
     width: 450px;
     margin-left: 30px;
+    box-shadow: 0 0 10px black;
 }
 
 .div-left {
@@ -224,8 +230,8 @@ body, * {
     margin: 15px 30px;
 }
 
-.img-preview {
+.modal-img {
+    width: 550px;
     box-shadow: 0 0 10px black;
 }
-
 /*End add*/

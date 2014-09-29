@@ -2,6 +2,7 @@
 angular.module('codeblock', [
     'ngRoute',
     'ngAnimate',
+    'ngDialog',
     'codeblockServices',
     'codeblockControllers',
     'codeblockDirectives',

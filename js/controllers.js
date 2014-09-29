@@ -2,7 +2,7 @@
 angular.module('codeblockControllers', [])
 
     // ListController
-    .controller('ListCTRL', function ($scope, CodeblocksFactory, rootUrl) {
+    .controller('ListCTRL', function ($scope, CodeblocksFactory, rootUrl, ngDialog) {
         var maxSize = 0;
         var firstTake = 10;
         var addOffset = 5;
@@ -37,8 +37,19 @@ angular.module('codeblockControllers', [])
         $scope.resetFilter = function () {
             $scope.query = '';
         }
+
+        $scope.modalImage = function (block) {
+            ngDialog.open({
+                template: 'temp-modal',
+                controller: 'ModalCTRL',
+                data: block,
+            })
+        }
     })
 
+    .controller('ModalCTRL', function ($scope) {
+        $scope.block = $scope.ngDialogData;
+    })
     //CreateController
     .controller('CreateCTRL', function ($scope, $location, $timeout, CodeblocksFactory, rootUrl) {
         $scope.addMode = true;
