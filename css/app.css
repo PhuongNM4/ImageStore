@@ -173,7 +173,7 @@ body, * {
     margin-left: 30px;
     box-shadow: 0 0 10px black;
 }
-.img-preview :hover {
+.img-preview:hover {
     cursor: pointer;
 }
 
