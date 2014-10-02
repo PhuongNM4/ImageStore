@@ -12,7 +12,7 @@ angular.module('codeblockFilters', [])
     })
 .filter('fromNow', function () {
     return function (date) {
-        return moment(date.split(' ')[2], 'DD-MM-YYYY').fromNow();
+        return moment(date.split(' ')[2]+ ' '+date.split(' ')[0], 'DD-MM-YYYY h:mm').fromNow();
     }
 })
 
